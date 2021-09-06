@@ -5,7 +5,7 @@ import { Container } from 'common/layout';
 import { Heading } from 'common/typography';
 
 export const ProductsOverviewContainer = styled(Container)`
-  margin-top: 30px;
+  margin: 30px auto;
 
   ${media.desktop`
     margin-top: 100px;
@@ -35,4 +35,13 @@ export const ProductsOverviewHeading = styled(Heading)`
     font-size: 80px;
     margin-top: 0;
   `}
+`;
+
+export const ProductsOverviewEmptyState = styled.span`
+  display: inline-block;
+  width: 100%;
+  padding: 24px;
+  text-align: center;
+  font-size: 28px;
+  color: ${({ theme }) => theme.colors.gray.dark};
 `;

@@ -3,7 +3,9 @@ import 'styled-components';
 const theme = {
   colors: {
     pale: '#F6F6F5',
-    gray: '#DDDDDD',
+    gray: Object.assign('#DDDDDD', {
+      dark: '#AAAAAA',
+    }),
     green: '#00FCBD',
     blue: '#2F1CFF',
     black: '#000000',

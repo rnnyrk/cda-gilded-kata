@@ -5,6 +5,7 @@ import { useProductsContext } from 'modules/products';
 import { Product, ProductsFilter } from './components';
 import {
   ProductsOverviewContainer,
+  ProductsOverviewEmptyState,
   ProductsOverviewGrid,
   ProductsOverviewHeading,
 } from './styled';
@@ -19,12 +20,18 @@ export const ProductsOverview: React.FC = () => {
       </ProductsOverviewHeading>
       <ProductsOverviewContainer>
         <ProductsFilter />
-        <ProductsOverviewGrid>
-          {items.map((item, index) => {
-            const key = `item_${index}`;
-            return <Product {...{ key, item, index }} />;
-          })}
-        </ProductsOverviewGrid>
+        {items && items.length > 0 ? (
+          <ProductsOverviewGrid>
+            {items.map((item, index) => {
+              const key = `item_${index}`;
+              return <Product {...{ key, item, index }} />;
+            })}
+          </ProductsOverviewGrid>
+        ) : (
+          <ProductsOverviewEmptyState>
+            No more products to show...
+          </ProductsOverviewEmptyState>
+        )}
       </ProductsOverviewContainer>
     </>
   );

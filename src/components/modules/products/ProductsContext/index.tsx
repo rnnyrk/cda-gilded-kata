@@ -1,6 +1,8 @@
 import * as i from 'types';
 import * as React from 'react';
 
+import { useQueryParams } from 'hooks';
+
 export const ProductsContext = React.createContext<ProductsContextProps>(
   {} as ProductsContextProps,
 );
@@ -16,6 +18,13 @@ export const ProductsProvider = ({ children, initialItems }: ProductsProviderPro
   const [hasExpiredFilter, setHasExpiredFilter] = React.useState(false);
   const [hasOlderFilter, setHasOlderFilter] = React.useState(false);
   const [items, setItems] = React.useState<i.Item[]>(initialItems);
+  const { queryParams } = useQueryParams();
+
+  React.useEffect(() => {
+    const paramKeys = Object.keys(queryParams);
+    if (paramKeys.includes('expired')) setHasExpiredFilter(true);
+    if (paramKeys.includes('older')) setHasOlderFilter(true);
+  }, []);
 
   const filteredItems = React.useMemo(() => {
     let fItems = [...items];
