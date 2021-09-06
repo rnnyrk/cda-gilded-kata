@@ -16,11 +16,6 @@ export const Button = styled.button<ButtonProps>`
   transition: background-color .2s, color .2s;
   border-radius: ${({ theme }) => theme.ui.borderRadius.default};
 
-  ${({ $active }) => $active && css`
-    color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.blue};
-  `};
-
   ${({ $size }) => $size === 'square' && css`
     width: 40px;
     padding: 0;
@@ -29,6 +24,16 @@ export const Button = styled.button<ButtonProps>`
   ${({ $color }) => $color === 'green' && css`
     color: ${({ theme }) => theme.colors.green};
     border-color: ${({ theme }) => theme.colors.green};
+  `};
+
+  ${({ $active, $color }) => $active && css`
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.blue};
+
+    ${$color === 'green' && css`
+      border-color: ${({ theme }) => theme.colors.green};
+      background-color: ${({ theme }) => theme.colors.green};
+    `}
   `};
 
   ${media.desktop<ButtonProps>`

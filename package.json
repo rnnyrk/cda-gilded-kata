@@ -30,6 +30,7 @@
     "express": "4.17.1",
     "framer-motion": "^4.1.17",
     "lodash": "4.17.21",
+    "qs": "^6.7.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-router": "5.2.1",

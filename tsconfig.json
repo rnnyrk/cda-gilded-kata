@@ -26,6 +26,7 @@
       "server": ["server/index"],
       "services/*": ["src/services/*"],
       "hooks": ["src/hooks/index"],
+      "hooks/*": ["src/hooks/*"],
       "store": ["src/store"],
       "styles/*": ["src/styles/*"],
       "styles": ["src/styles/index"],

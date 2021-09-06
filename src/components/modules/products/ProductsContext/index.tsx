@@ -11,13 +11,29 @@ export const useProductsContext = () => {
   return context;
 };
 
-export const ProductsProvider = ({
-  children, initialItems,
-}: ProductsProviderProps) => {
+export const ProductsProvider = ({ children, initialItems }: ProductsProviderProps) => {
   const [days, setDays] = React.useState(1);
+  const [hasExpiredFilter, setHasExpiredFilter] = React.useState(false);
+  const [hasOlderFilter, setHasOlderFilter] = React.useState(false);
   const [items, setItems] = React.useState<i.Item[]>(initialItems);
 
-  const updateQuality = () => {
+  const filteredItems = React.useMemo(() => {
+    let fItems = [...items];
+
+    if (hasExpiredFilter) {
+      fItems = fItems.filter((item) => item.sellIn > 0);
+    }
+
+    if (hasOlderFilter) {
+      fItems = fItems.filter((item) => (
+        item.name.includes('Backstage passes') || item.name.includes('Aged Brie')
+      ));
+    }
+
+    return fItems;
+  }, [hasExpiredFilter, hasOlderFilter, days]);
+
+  const onUpdateQuality = () => {
     const updatedItems = items.map((item) => {
       const isBackstage = item.name.includes('Backstage passes');
       const isBrie = item.name.includes('Aged Brie');
@@ -62,9 +78,8 @@ export const ProductsProvider = ({
         updated['quality'] = item.quality - qualityChange;
       }
 
-      if (!sellDatePassed) {
-        updated['sellIn'] = item.sellIn - 1;
-      }
+      // Always decrease sellIn
+      updated['sellIn'] = item.sellIn - 1;
 
       return updated;
     });
@@ -73,12 +88,19 @@ export const ProductsProvider = ({
     setDays((prevDay) => prevDay + 1);
   };
 
+  const onFilterExpired = () => setHasExpiredFilter(!hasExpiredFilter);
+  const onFilterQualityIncreased = () => setHasOlderFilter(!hasOlderFilter);
+
   return (
     <ProductsContext.Provider
       value={{
         currentDay: days,
-        items,
-        updateQuality,
+        hasExpiredFilter,
+        hasOlderFilter,
+        items: filteredItems,
+        onFilterExpired,
+        onFilterQualityIncreased,
+        onUpdateQuality,
       }}
     >
       {children}
@@ -88,8 +110,12 @@ export const ProductsProvider = ({
 
 type ProductsContextProps = {
   currentDay: number;
+  hasExpiredFilter: boolean;
+  hasOlderFilter: boolean;
   items: i.Item[];
-  updateQuality: () => void;
+  onFilterExpired: () => void;
+  onFilterQualityIncreased: () => void;
+  onUpdateQuality: () => void;
 };
 
 type ProductsProviderProps = {
