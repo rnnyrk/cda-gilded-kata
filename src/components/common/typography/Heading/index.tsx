@@ -5,29 +5,28 @@ import { media } from 'styles/utils';
 
 const headingSizes = {
   h1: {
-    mobile: '36px',
-    desktop: '72px',
+    mobile: '32px',
+    desktop: '48px',
   },
   h2: {
-    mobile: '30px',
-    desktop: '36px',
+    mobile: '26px',
+    desktop: '32px',
   },
   h3: {
-    mobile: '24px',
-    desktop: '30px',
+    mobile: '22px',
+    desktop: '26px',
   },
   h4: {
     mobile: '18px',
-    desktop: '24px',
+    desktop: '20px',
   },
 };
 
 export const Heading = styled.h1<HeadingProps>`
-  font-weight: 500;
+  font-weight: 700;
   line-height: 100%;
   font-size: ${({ as }) => headingSizes[as || 'h1'].mobile};
   font-family: ${({ theme }) => theme.fonts.poppins};
-  text-transform: uppercase;
   color: ${({ theme, color }) => theme.colors[color || 'black']};
   margin: ${({ margin }) => margin || '24px 0'};
 
