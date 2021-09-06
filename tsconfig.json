@@ -17,6 +17,7 @@
     "paths": {
       "common/*": ["src/components/common/*"],
       "modules/*": ["src/components/modules/*"],
+      "pages/*": ["src/components/pages/*"],
       "config/*": ["config/*"],
       "config": ["config/index"],
       "ducks/*": ["src/ducks/*"],
@@ -24,7 +25,7 @@
       "images/*": ["src/static/images/*"],
       "server": ["server/index"],
       "services/*": ["src/services/*"],
-      "hooks": ["src/services/hooks/index"],
+      "hooks": ["src/hooks/index"],
       "store": ["src/store"],
       "styles/*": ["src/styles/*"],
       "styles": ["src/styles/index"],
