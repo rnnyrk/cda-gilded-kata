@@ -4,7 +4,12 @@ import * as React from 'react';
 import { Heading } from 'common/typography';
 
 import { ProductVariants } from './variants';
-import { ProductContainer, ProductMeta, ProductMetaItem } from './styled';
+import {
+  ProductContainer,
+  ProductMeta,
+  ProductMetaItem,
+  ProductContent,
+} from './styled';
 
 export const Product: React.FC<ProductProps> = ({
   item, index,
@@ -16,19 +21,21 @@ export const Product: React.FC<ProductProps> = ({
       custom={index}
       variants={ProductVariants}
     >
-      <Heading as="h4" margin="0">
-        {item.name}
-      </Heading>
-      <ProductMeta>
-        <ProductMetaItem>
-          <strong>Quality</strong>
-          <span>{item.quality}</span>
-        </ProductMetaItem>
-        <ProductMetaItem>
-          <strong>Sell in</strong>
-          <span>{item.sellIn}</span>
-        </ProductMetaItem>
-      </ProductMeta>
+      <ProductContent>
+        <Heading as="h4" margin="0">
+          {item.name}
+        </Heading>
+        <ProductMeta>
+          <ProductMetaItem>
+            <strong>Quality</strong>
+            <span>{item.quality}</span>
+          </ProductMetaItem>
+          <ProductMetaItem>
+            <strong>Sell in</strong>
+            <span>{item.sellIn}</span>
+          </ProductMetaItem>
+        </ProductMeta>
+      </ProductContent>
     </ProductContainer>
   );
 };
