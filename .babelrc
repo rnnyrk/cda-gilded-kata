@@ -1,0 +1,15 @@
+{
+  "presets": [
+    ["@babel/preset-env", { "useBuiltIns": "entry", "corejs": 3 }],
+    "@babel/typescript",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "lodash",
+    "babel-plugin-styled-components",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-export-namespace-from"
+  ]
+}
