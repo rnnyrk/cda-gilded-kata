@@ -9,19 +9,19 @@ export const Button = styled.button<ButtonProps>`
   font-weight: bold;
   padding: 4px 12px;
   cursor: pointer;
-  color: ${({ theme }) => theme.colors.purple};
-  border: 2px solid ${({ theme }) => theme.colors.purple};
+  color: ${({ theme }) => theme.colors.blue};
+  border: 2px solid ${({ theme }) => theme.colors.blue};
   background-color: ${({ theme }) => theme.colors.white};
   transition: background-color .2s, color .2s;
 
   &:hover {
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.purple};
+    background-color: ${({ theme }) => theme.colors.blue};
   }
 
   ${({ active }) => active && css`
     color: ${({ theme }) => theme.colors.white};
-    background-color: ${({ theme }) => theme.colors.purple};
+    background-color: ${({ theme }) => theme.colors.blue};
   `};
 
   ${({ variant }) => variant === 'square' && css`

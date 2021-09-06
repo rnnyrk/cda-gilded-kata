@@ -15,6 +15,6 @@ export const LoaderContainer = styled.div`
 
   svg {
     width: 100px;
-    fill: ${({ theme }) => theme.colors.yellow};
+    fill: ${({ theme }) => theme.colors.green};
   }
 `;
