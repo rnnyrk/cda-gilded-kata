@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { media } from 'styles/utils';
 
 import { Heading } from 'common/typography';
 
@@ -7,6 +8,7 @@ export const ProductContainer = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
   padding: 32px;
+  margin-bottom: 16px;
   border-radius: ${({ theme }) => theme.ui.borderRadius.default};
   background-color: ${({ theme }) => theme.colors.pale};
   border: 1px solid ${({ theme }) => theme.colors.gray};
@@ -17,6 +19,10 @@ export const ProductContainer = styled(motion.div)`
     margin-bottom: 24px;
     text-transform: uppercase;
   }
+
+  ${media.desktop`
+    margin-bottom: 0;
+  `}
 `;
 
 export const ProductMeta = styled.div`
