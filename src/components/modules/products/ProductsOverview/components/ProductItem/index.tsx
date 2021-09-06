@@ -8,9 +8,20 @@ export const ProductItem: React.FC<ProductItemProps> = ({
 }) => {
   return (
     <ProductItemContainer>
-      {item.name}
-      {item.quality}
-      {item.sellIn}
+      <ul>
+        <li>
+          <strong>Name:</strong>
+          <span>{item.name}</span>
+        </li>
+        <li>
+          <strong>Quality:</strong>
+          <span>{item.quality}</span>
+        </li>
+        <li>
+          <strong>Sell in:</strong>
+          <span>{item.sellIn}</span>
+        </li>
+      </ul>
     </ProductItemContainer>
   );
 };
