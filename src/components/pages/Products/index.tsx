@@ -30,7 +30,7 @@ const initialItems: i.Item[] = [
     quality: 80,
   },
   {
-    name: 'Backstage passes to a TAFKAL80ETC concer',
+    name: 'Backstage passes to a TAFKAL80ETC concert',
     sellIn: 15,
     quality: 20,
   },

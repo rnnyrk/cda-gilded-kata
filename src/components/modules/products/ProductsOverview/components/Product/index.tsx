@@ -23,17 +23,21 @@ export const Product: React.FC<ProductProps> = ({
       data-testid="product"
     >
       <ProductContent>
-        <Heading as="h4" $margin="0">
+        <Heading as="h4" $margin="0" data-testid="productHeading">
           {item.name}
         </Heading>
         <ProductMeta>
           <ProductMetaItem>
             <strong>Quality</strong>
-            <span>{item.quality}</span>
+            <span data-testid="productQuality">
+              {item.quality}
+            </span>
           </ProductMetaItem>
           <ProductMetaItem>
             <strong>Sell in</strong>
-            <span>{item.sellIn}</span>
+            <span data-testid="productSellIn">
+              {item.sellIn}
+            </span>
           </ProductMetaItem>
         </ProductMeta>
       </ProductContent>
