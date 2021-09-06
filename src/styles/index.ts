@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import theme from './theme';
+
 const globalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
@@ -17,7 +19,8 @@ const globalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: ${theme.fonts.poppins};
+    background-color: ${theme.colors.pale};
   }
 `;
 

@@ -17,8 +17,8 @@ const headingSizes = {
     desktop: '26px',
   },
   h4: {
-    mobile: '18px',
-    desktop: '20px',
+    mobile: '20px',
+    desktop: '24px',
   },
 };
 

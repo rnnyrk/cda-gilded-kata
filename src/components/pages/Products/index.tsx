@@ -2,9 +2,8 @@ import * as i from 'types';
 import * as React from 'react';
 
 import { ProductsOverview } from 'modules/products';
-import { Button } from 'common/interaction';
-import { Container } from 'common/layout';
-import { Heading } from 'common/typography';
+
+import { ProductsHeading } from './styled';
 
 const defaultItems: i.Item[] = [
   {
@@ -72,7 +71,7 @@ const Products: React.FC = () => {
 
       const updated = { ...item };
 
-      // Conjured items degrade in Quality twice as fast
+      // "Conjured" items degrade in quality twice as fast
       if (isConjured) {
         qualityChange = qualityChange * 2;
       }
@@ -80,7 +79,7 @@ const Products: React.FC = () => {
       // "Sulfuras", being a legendary item, never has to be sold or decreases in Quality
       if (isLegendarySulfuras) return updated;
 
-      // The Quality of an item is never negative
+      // The quality of an item is never negative
       if (item.quality - qualityChange < 0 && !isQualityIncreaser) {
         return {
           ...updated,
@@ -115,13 +114,12 @@ const Products: React.FC = () => {
   };
 
   return (
-    <Container>
-      <Heading as="h2">Amount of days: {days}</Heading>
-      <ProductsOverview {...{ items }} />
-      <Button onClick={updateQuality}>
-        Update quality
-      </Button>
-    </Container>
+    <>
+      <ProductsHeading>
+        Amount of days: {days}
+      </ProductsHeading>
+      <ProductsOverview {...{ items, updateQuality }} />
+    </>
   );
 };
 

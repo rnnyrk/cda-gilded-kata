@@ -3,13 +3,19 @@ import * as React from 'react';
 
 import { Heading } from 'common/typography';
 
+import { ProductVariants } from './variants';
 import { ProductContainer, ProductMeta, ProductMetaItem } from './styled';
 
 export const Product: React.FC<ProductProps> = ({
-  item,
+  item, index,
 }) => {
   return (
-    <ProductContainer>
+    <ProductContainer
+      initial="hidden"
+      animate="visible"
+      custom={index}
+      variants={ProductVariants}
+    >
       <Heading as="h4" margin="0">
         {item.name}
       </Heading>
@@ -29,4 +35,5 @@ export const Product: React.FC<ProductProps> = ({
 
 type ProductProps = {
   item: i.Item;
+  index: number;
 };

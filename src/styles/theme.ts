@@ -10,8 +10,17 @@ const theme = {
     white: '#FFFFFF',
   },
 
+  ui: {
+    borderRadius: {
+      default: '8px',
+    },
+    shadows: {
+      default: '0 15px 30px rgba(0, 0, 0, .1)',
+    },
+  },
+
   fonts: {
-    poppins: 'Helvetica, sans-serif',
+    poppins: '"Poppins", sans-serif',
   },
 } as const;
 
