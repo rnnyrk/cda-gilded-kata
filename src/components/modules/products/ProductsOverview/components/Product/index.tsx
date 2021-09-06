@@ -20,6 +20,7 @@ export const Product: React.FC<ProductProps> = ({
       animate="visible"
       custom={index}
       variants={ProductVariants}
+      data-testid="product"
     >
       <ProductContent>
         <Heading as="h4" $margin="0">

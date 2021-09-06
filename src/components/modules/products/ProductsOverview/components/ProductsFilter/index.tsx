@@ -37,12 +37,13 @@ export const ProductsFilter: React.FC = () => {
   }, [hasExpiredFilter, hasOlderFilter]);
 
   return (
-    <ProductsFilterContainer>
+    <ProductsFilterContainer data-testid="productsFilter">
       <ProductsFilterOptions>
         <Button
           $active={hasExpiredFilter}
           $color="green"
           onClick={onFilterExpired}
+          data-testid="productsExpiredBtn"
         >
           No expired products
         </Button>
@@ -50,11 +51,15 @@ export const ProductsFilter: React.FC = () => {
           $active={hasOlderFilter}
           $color="green"
           onClick={onFilterQualityIncreased}
+          data-testid="productsOlderBtn"
         >
           The older the better
         </Button>
       </ProductsFilterOptions>
-      <Button onClick={onUpdateQuality}>
+      <Button
+        onClick={onUpdateQuality}
+        data-testid="productsNextDayBtn"
+      >
         Next day
       </Button>
     </ProductsFilterContainer>

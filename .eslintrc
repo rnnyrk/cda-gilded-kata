@@ -7,6 +7,10 @@
       "plugin:import/warnings",
       "plugin:import/typescript"
   ],
+  "plugins": [
+    "react-hooks",
+    "testing-library"
+  ],
   "parserOptions": {
       "ecmaVersion": 2018,
       "sourceType": "module",

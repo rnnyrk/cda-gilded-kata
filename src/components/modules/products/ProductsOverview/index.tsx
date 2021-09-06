@@ -15,7 +15,7 @@ export const ProductsOverview: React.FC = () => {
 
   return (
     <>
-      <ProductsOverviewHeading>
+      <ProductsOverviewHeading data-testid="productsHeader">
         Amount of days: {currentDay}
       </ProductsOverviewHeading>
       <ProductsOverviewContainer>
@@ -28,7 +28,7 @@ export const ProductsOverview: React.FC = () => {
             })}
           </ProductsOverviewGrid>
         ) : (
-          <ProductsOverviewEmptyState>
+          <ProductsOverviewEmptyState data-testid="productsEmptyState">
             No more products to show...
           </ProductsOverviewEmptyState>
         )}
