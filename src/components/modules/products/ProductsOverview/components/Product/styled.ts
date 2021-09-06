@@ -41,7 +41,7 @@ export const ProductContainer = styled(motion.div)`
       }
     }
 
-    &:nth-child(odd) {
+    &:nth-child(even) {
       &:before {
         background-color: ${({ theme }) => theme.colors.green};
       }

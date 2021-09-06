@@ -22,7 +22,7 @@ export const Product: React.FC<ProductProps> = ({
       variants={ProductVariants}
     >
       <ProductContent>
-        <Heading as="h4" margin="0">
+        <Heading as="h4" $margin="0">
           {item.name}
         </Heading>
         <ProductMeta>

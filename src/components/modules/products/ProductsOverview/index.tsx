@@ -1,30 +1,31 @@
-import * as i from 'types';
 import React from 'react';
 
-import { Button } from 'common/interaction';
+import { useProductsContext } from 'modules/products';
 
-import { Product } from './components';
-import { ProductsOverviewContainer, ProductsOverviewGrid } from './styled';
+import { Product, ProductsFilter } from './components';
+import {
+  ProductsOverviewContainer,
+  ProductsOverviewGrid,
+  ProductsOverviewHeading,
+} from './styled';
 
-export const ProductsOverview: React.FC<ProductsOverviewProps> = ({
-  items, updateQuality,
-}) => {
+export const ProductsOverview: React.FC = () => {
+  const { currentDay, items } = useProductsContext();
+
   return (
-    <ProductsOverviewContainer>
-      <ProductsOverviewGrid>
-        {items.map((item, index) => {
-          return <Product key={`item_${index}`} {...{ item, index } } />;
-        })}
-      </ProductsOverviewGrid>
-      <Button onClick={updateQuality}>
-        Update quality
-      </Button>
-    </ProductsOverviewContainer>
+    <>
+      <ProductsOverviewHeading>
+        Amount of days: {currentDay}
+      </ProductsOverviewHeading>
+      <ProductsOverviewContainer>
+        <ProductsFilter />
+        <ProductsOverviewGrid>
+          {items.map((item, index) => {
+            const key = `item_${index}`;
+            return <Product {...{ key, item, index }} />;
+          })}
+        </ProductsOverviewGrid>
+      </ProductsOverviewContainer>
+    </>
   );
-};
-
-
-type ProductsOverviewProps = {
-  items: Array<i.Item>;
-  updateQuality: () => void;
 };
